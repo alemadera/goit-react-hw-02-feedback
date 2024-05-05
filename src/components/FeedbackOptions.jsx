@@ -1,16 +1,20 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Button } from './App.styled';
 
-const FeedbackOptions = ({ options, onLeaveFeedback }) => {
-  return (
-    <div>
-      {Object.entries(options).map(([type, name]) => (
-        <Button key={type} onClick={() => onLeaveFeedback(type)}>
-          {name}
-        </Button>
-      ))}
-    </div>
-  );
-};
+class FeedbackOptions extends Component {
+  render() {
+    const { options, onLeaveFeedback } = this.props;
+
+    return (
+      <div>
+        {Object.entries(options).map(([type, name]) => (
+          <Button key={type} onClick={() => onLeaveFeedback(type)}>
+            {name}
+          </Button>
+        ))}
+      </div>
+    );
+  }
+}
 
 export default FeedbackOptions;
